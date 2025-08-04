@@ -136,7 +136,7 @@ export class DirectusUtil implements ConfigStore {
     if (filePath) {
       formData.append('folder', filePath);
     }
-    formData.append('file', new Blob([content.buffer]), fileName);
+    formData.append('file', new Blob([new Uint8Array(content.buffer)]), fileName);
     try {
       const file = await this._client.request(uploadFiles(formData));
       return file['id'];
