@@ -11,6 +11,11 @@ RUN npm run install-all && npm run build
 FROM node:22-slim
 COPY --from=build /usr/local/apps/citrineos /usr/local/apps/citrineos
 
+#copy the data and hasura metadata folders into the final image
+RUN echo "Copying data and hasura metadata folders..."
+COPY --from=build /usr/local/apps/citrineos/data /usr/local/apps/citrineos/data
+COPY --from=build /usr/local/apps/citrineos/hasura-metadata /usr/local/apps/citrineos/hasura-metadata
+
 WORKDIR /usr/local/apps/citrineos
 
 EXPOSE ${PORT}
