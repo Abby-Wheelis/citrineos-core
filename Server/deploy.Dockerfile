@@ -16,7 +16,7 @@ RUN echo "Copying data and hasura metadata folders..."
 #list the contents of the directories to verify they exist
 # RUN ls /usr/local/apps/citrineos/Server
 # COPY /usr/local/apps/citrineos/Server/data /usr/local/apps/citrineos/Server/data
-COPY /usr/local/apps/citrineos/Server/hasura-metadata /usr/local/apps/citrineos/Server/hasura-metadata
+COPY /usr/local/apps/citrineos/Server/hasura-metadata /usr/local/apps/citrineos/Server
 
 WORKDIR /usr/local/apps/citrineos
 
