@@ -9,16 +9,16 @@
 .gitignore
 **/package-lock.json
 
-# Specific files and file types to ignore
-**/*.js
-**/*.cjs
-**/*.md
-**/*.yml
-**/*.tsbuildinfo
-**/*.log
-**/*.tgz
-**/*.sh
-**/*.Dockerfile
+# # Specific files and file types to ignore
+# **/*.js
+# **/*.cjs
+# **/*.md
+# **/*.yml
+# **/*.tsbuildinfo
+# **/*.log
+# **/*.tgz
+# **/*.sh
+# **/*.Dockerfile
 
 # Specific directories to ignore
 **/DirectusExtensions
