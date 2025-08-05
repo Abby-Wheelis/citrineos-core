@@ -23,7 +23,7 @@
 # Specific directories to ignore
 **/DirectusExtensions
 **/Swarm
-**/data
+# **/data
 
 # include sequelize bridge
 !Server/
