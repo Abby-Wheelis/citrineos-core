@@ -12,8 +12,10 @@ RUN echo "Copying data and hasura metadata folders..."
 
 # Copy the data and hasura-metadata folders into the built image
 #copy local to image
-# COPY /usr/local/apps/citrineos/Server/data /usr/local/apps/citrineos/Server/data
-# COPY /usr/local/apps/citrineos/Server/hasura-metadata /usr/local/apps/citrineos/Server/hasura-metadata
+COPY Server/data /usr/local/apps/citrineos/Server
+COPY Server/hasura-metadata /usr/local/apps/citrineos/Server
+
+RUN ls /usr/local/apps/citrineos/Server
 
 # COPY /usr/local/apps/citrineos/hasura-metadata /usr/local/apps/citrineos/Server
 
