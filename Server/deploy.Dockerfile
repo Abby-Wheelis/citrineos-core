@@ -9,8 +9,9 @@ RUN npm run install-all && npm run build
 RUN echo "Copying data and hasura metadata folders..."
 #list the contents of /usr/local/apps/citrineos
 RUN ls /usr/local/apps/citrineos/Server
+RUN ls /usr/local/apps/citrineos/
 
-COPY /usr/local/apps/citrineos/hasura-metadata /usr/local/apps/citrineos/Server
+# COPY /usr/local/apps/citrineos/hasura-metadata /usr/local/apps/citrineos/Server
 
 # The final stage, which copies built files and prepares the run environment
 # Using a slim image to reduce the final image size
