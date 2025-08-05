@@ -22,7 +22,7 @@
 
 # Specific directories to ignore
 **/DirectusExtensions
-# **/Swarm
+**/Swarm
 # **/data
 
 # include sequelize bridge
