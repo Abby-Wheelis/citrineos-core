@@ -7,13 +7,13 @@ COPY . .
 RUN npm run install-all && npm run build
 
 RUN echo "Copying data and hasura metadata folders..."
-#list the contents of /usr/local/apps/citrineos
-RUN ls /usr/local/apps/citrineos/Server
-RUN ls /usr/local/apps/citrineos/
+#list the contents of the local directory
+
 
 # Copy the data and hasura-metadata folders into the built image
-COPY /usr/local/apps/citrineos/Server/data /usr/local/apps/citrineos/Server/data
-COPY /usr/local/apps/citrineos/Server/hasura-metadata /usr/local/apps/citrineos/Server/hasura-metadata
+#copy local to image
+# COPY /usr/local/apps/citrineos/Server/data /usr/local/apps/citrineos/Server/data
+# COPY /usr/local/apps/citrineos/Server/hasura-metadata /usr/local/apps/citrineos/Server/hasura-metadata
 
 # COPY /usr/local/apps/citrineos/hasura-metadata /usr/local/apps/citrineos/Server
 
