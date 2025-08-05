@@ -6,17 +6,14 @@ WORKDIR /usr/local/apps/citrineos
 COPY . .
 RUN npm run install-all && npm run build
 
+RUN echo "Copying data and hasura metadata folders..."
+#list the contents of /usr/local/apps/citrineos
+RUN ls /usr/local/apps/citrineos
+
 # The final stage, which copies built files and prepares the run environment
 # Using a slim image to reduce the final image size
 FROM node:22-slim
 COPY --from=build /usr/local/apps/citrineos /usr/local/apps/citrineos
-
-#copy the data and hasura metadata folders into the final image
-# RUN echo "Copying data and hasura metadata folders..."
-
-RUN ls -al /usr/local/apps/citrineos
-COPY --from=build /usr/local/apps/citrineos/data /usr/local/apps/citrineos/data
-COPY --from=build /usr/local/apps/citrineos/Server/hasura-metadata /usr/local/apps/citrineos/Server/hasura-metadata
 
 WORKDIR /usr/local/apps/citrineos
 
