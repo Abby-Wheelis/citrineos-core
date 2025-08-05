@@ -13,11 +13,10 @@ COPY --from=build /usr/local/apps/citrineos /usr/local/apps/citrineos
 
 #copy the data and hasura metadata folders into the final image
 # RUN echo "Copying data and hasura metadata folders..."
-# RUN pwd
-#list the contents of the directories to verify they exist
-RUN --from=build ls /usr/local/apps/citrineos/Server
-# COPY /usr/local/apps/citrineos/Server/data /usr/local/apps/citrineos/Server/data
-# COPY /usr/local/apps/citrineos/Server/hasura-metadata /usr/local/apps/citrineos/Server
+
+RUN ls -al /usr/local/apps/citrineos
+COPY --from=build /usr/local/apps/citrineos/data /usr/local/apps/citrineos/data
+COPY --from=build /usr/local/apps/citrineos/Server/hasura-metadata /usr/local/apps/citrineos/Server/hasura-metadata
 
 WORKDIR /usr/local/apps/citrineos
 
