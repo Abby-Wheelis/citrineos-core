@@ -20,8 +20,8 @@
 **/*.sh
 **/*.Dockerfile
 
-# # Specific directories to ignore
-# **/DirectusExtensions
+# Specific directories to ignore
+**/DirectusExtensions
 # **/Swarm
 # **/data
 
