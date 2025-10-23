@@ -1,3 +1,8 @@
+
+#  SPDX-FileCopyrightText: 2025 Contributors to the CitrineOS Project
+#
+#  SPDX-License-Identifier: Apache-2.0
+
 # Use a specific base image with platform support
 FROM --platform=${BUILDPLATFORM:-linux/amd64} node:22 AS build
 
@@ -10,6 +15,9 @@ RUN echo "Copying data and hasura metadata folders..."
 COPY /Server/data /usr/local/apps/citrineos/Server
 COPY Server/hasura-metadata /usr/local/apps/citrineos/Server
 
+#list all the files in /usr/local/apps/citrineos/Server
+RUN ls -la /usr/local/apps/citrineos/Server
+
 # The final stage, which copies built files and prepares the run environment
 # Using a slim image to reduce the final image size
 FROM node:22-slim
@@ -17,6 +25,8 @@ COPY --from=build /usr/local/apps/citrineos /usr/local/apps/citrineos
 
 WORKDIR /usr/local/apps/citrineos
 
+RUN chmod +x /usr/local/apps/citrineos/entrypoint.sh
+
 EXPOSE ${PORT}
 
-CMD ["npm", "run", "start-docker-cloud"]
+ENTRYPOINT ["/usr/local/apps/citrineos/entrypoint.sh"]
