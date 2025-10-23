@@ -15,7 +15,7 @@ COPY /Server/data /usr/local/apps/citrineos/Server
 COPY Server/hasura-metadata /usr/local/apps/citrineos/Server
 
 #list all the files in /usr/local/apps/citrineos/Server
-RUN ls -la /usr/local/apps/citrineos/Server/hasura-metadata/default/tables
+RUN ls -la -r /usr/local/apps/citrineos/Server/hasura-metadata
 
 # The final stage, which copies built files and prepares the run environment
 # Using a slim image to reduce the final image size
